@@ -35,58 +35,40 @@
                         </div>
                     </div>
                 </div>
-                <div class="card-body px-0 pb-2">
-                    <div class="table-responsive p-0">
-                        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-                        <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
-                        <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap4.min.js"></script>
 
-                        <div class="container-fluid mx-auto">
-                            <table id="logDataTable" class="table align-items-center justify-content-center mb-0 dataTable">
-
-                            </table>
-                            <div class="container-fluid mx-auto">
-                                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Monitoring</th>
-                                            <th>Waktu</th>
-                                            <th>Nama Device</th>
-                                            <th>CO</th>
-                                            <th>NO2</th>
-                                            <th>PM2.5</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($logdata as $row)
+                <div class="col-12">
+                    <div class="card my-3 mx-3">
+                        <div class="card-body">
+                            <div class="table-responsive p-0">
+                                <div class="container-fluid">
+                                    <table id="data-tables" class="table table-striped">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $row->idMonitoring }}</td>
-                                                <td>{{ $row->waktu }}</td>
-                                                <td>{{ $row->namadevice }}</td>
-                                                <td>{{ $row->co }}</td>
-                                                <td>{{ $row->no2 }}</td>
-                                                <td>{{ $row->pm25 }}</td>
+                                                <th>Waktu</th>
+                                                <th>Nama Device</th>
+                                                <th>CO</th>
+                                                <th>NO2</th>
+                                                <th>PM2.5</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                    <tfoot>
-                                        <tr>
-                                            <th>ID Monitoring</th>
-                                            <th>Waktu</th>
-                                            <th>Nama Device</th>
-                                            <th>CO</th>
-                                            <th>NO2</th>
-                                            <th>PM2.5</th>
-                                        </tr>
-                                    </tfoot>
-                                </table>
-                                <script>
-                                    new DataTable('#example');
-                                </script>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($logdata as $row)
+                                                <tr>
+                                                    <td>{{ date('d/m/Y H:i', strtotime($row->created_at)) }}</td>
+                                                    <td>{{ $row->device }}</td>
+                                                    <td>{{ $row->co }}</td>
+                                                    <td>{{ $row->no2 }}</td>
+                                                    <td>{{ $row->pm25 }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
                 @include('include.footer')
             </div>
     </main>

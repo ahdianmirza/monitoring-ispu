@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Logdata;
 use Illuminate\Http\Request;
 
 
@@ -9,7 +10,7 @@ class LogdataController extends Controller
 {
     public function logdata()
     {
-        $logdata = \App\Models\LogData::all();
+        $logdata = Logdata::all();
         return view('layout.logdata', compact('logdata'));
     }
 

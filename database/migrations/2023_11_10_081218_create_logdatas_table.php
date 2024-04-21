@@ -12,14 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('logdatas', function (Blueprint $table) {
-            // $table->id();
-            $table->integer('idMonitoring', 30);
-            $table->dateTime('waktu');
-            $table->string('namadevice', 100);
-            $table->string('co', 100)->default(0);
-            $table->string('no2', 100)->default(0);
-            $table->string('pm25', 100)->default(0);
-            $table->primary('idMonitoring');
+            $table->id();
+            $table->string('device');
+            $table->string('co')->nullable();
+            $table->string('no2')->nullable();
+            $table->string('pm25')->nullable();
             $table->timestamps();
         });
     }
