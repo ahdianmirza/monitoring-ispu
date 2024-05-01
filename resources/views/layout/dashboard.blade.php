@@ -50,7 +50,7 @@
                             </div>
                             <div class="text-end pt-1">
                                 {{-- <p class="text-sm mb-0 text-capitalize">Today's Users</p> --}}
-                                <h4 class="mb-0">23.4 µg/m3</h4>
+                                <h4 id="co-value" class="mb-0"></h4>
                             </div>
                         </div>
                         <hr class="dark horizontal my-0">
@@ -67,7 +67,7 @@
                                 <i class="material-icons opacity-10">person</i>
                             </div>
                             <div class="text-end pt-1">
-                                <h4 class="mb-0">3.75 µg/m3</h4>
+                                <h4 id="no2-value" class="mb-0"></h4>
                             </div>
                         </div>
                         <hr class="dark horizontal my-0">
@@ -84,7 +84,7 @@
                                 <i class="material-icons opacity-10">weekend</i>
                             </div>
                             <div class="text-end pt-1">
-                                <h4 class="mb-0">2.89 µg/m3</h4>
+                                <h4 id="pm25-value" class="mb-0"></h4>
                             </div>
                         </div>
                         <hr class="dark horizontal my-0">
@@ -569,4 +569,42 @@
             @include('include.footer')
         </div>
     </main>
+
+    <script>
+        let dataSendTrigger = false;
+
+        const getDataDashboard = () => {
+            const request = new Request("api/data-dashboard", {
+                method: "GET"
+            });
+            const response = fetch(request);
+
+            response
+                .then(res => res.json())
+                .then(json => {
+                    console.info("Data Dashboard request: ", json);
+                    document.getElementById('co-value').textContent = json.co;
+                    document.getElementById('no2-value').textContent = json.no2;
+                    document.getElementById('pm25-value').textContent = json.pm25;
+                })
+                .catch(error => {
+                    console.info(error);
+                })
+        }
+
+        const setDefaultData = () => {
+            document.getElementById('co-value').textContent = '-';
+            document.getElementById('no2-value').textContent = '-';
+            document.getElementById('pm25-value').textContent = '-';
+        }
+
+        setInterval(() => {
+            dataSendTrigger = true;
+            getDataDashboard();
+        }, 5000);
+
+        if (dataSendTrigger != true) {
+            setDefaultData();
+        }
+    </script>
 @endsection

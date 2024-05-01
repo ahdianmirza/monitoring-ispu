@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogdataController;
@@ -20,3 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::get('logdata', [LogdataController::class, 'index']);
+
+// API Alat
+Route::get('/data-dashboard', [ApiController::class, 'getDataDashboard']);
+Route::put('/data-dashboard', [ApiController::class, 'dataDashboard']);

@@ -10,7 +10,7 @@ class LogdataController extends Controller
 {
     public function logdata()
     {
-        $logdata = Logdata::all();
+        $logdata = Logdata::orderBy('created_at', 'asc')->get();
         return view('layout.logdata', compact('logdata'));
     }
 

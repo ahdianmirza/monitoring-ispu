@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogdataController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/logdata', [LogdataController::class, 'logdata'])->name('logdata.logdata');
 
-Route::get('/', function () {
-    return view('layout.dashboard');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/dashboard', function () {
     return view('layout.dashboard');
