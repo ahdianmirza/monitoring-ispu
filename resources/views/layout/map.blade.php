@@ -53,7 +53,7 @@
                             <!-- <div id="vector-map" class="mt-5 min-height-500"></div> -->
                             <iframe
                                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1014277.8491805827!2d105.57157516479492!3d-6.7670681307900775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ccfa13a625f7%3A0x1ee561a0b6d96208!2sAmerta%20Indah%20Otsuka!5e0!3m2!1sid!2sid!4v1715089965082!5m2!1sid!2sid"
-                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
 
