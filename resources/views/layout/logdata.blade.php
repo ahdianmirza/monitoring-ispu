@@ -19,7 +19,7 @@
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
-                                href="../pages/map.html">Lokasi Alat : Sekolah Vokasi IPB University</a>
+                                href="../pages/map.html">Lokasi Alat : PT Amerta Indah Otsuka</a>
                         </li>
                     </ul>
                 </div>

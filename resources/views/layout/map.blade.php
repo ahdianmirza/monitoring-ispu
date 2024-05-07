@@ -22,7 +22,7 @@
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
-                                href="{{ url('map') }}">Lokasi Alat : Sekolah Vokasi IPB University</a>
+                                href="{{ url('map') }}">Lokasi Alat : PT Amerta Indah Otsuka</a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
@@ -52,8 +52,8 @@
                         <div class="card-body">
                             <!-- <div id="vector-map" class="mt-5 min-height-500"></div> -->
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.462867798817!2d106.80353987484061!3d-6.589245164412669!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69c5d2e602b501%3A0x25a12f0f97fac4ee!2sSekolah%20Vokasi%20Institut%20Pertanian%20Bogor!5e0!3m2!1sid!2sid!4v1697525212623!5m2!1sid!2sid"
-                                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1014277.8491805827!2d105.57157516479492!3d-6.7670681307900775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69ccfa13a625f7%3A0x1ee561a0b6d96208!2sAmerta%20Indah%20Otsuka!5e0!3m2!1sid!2sid!4v1715089965082!5m2!1sid!2sid"
+                                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                                 referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
 

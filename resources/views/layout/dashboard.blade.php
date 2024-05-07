@@ -22,7 +22,7 @@
                     <ul class="navbar-nav  justify-content-end">
                         <li class="nav-item d-flex align-items-center">
                             <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
-                                href="{{ url('map') }}">Lokasi Alat : Sekolah Vokasi IPB University</a>
+                                href="{{ url('map') }}">Lokasi Alat : PT Amerta Indah Otsuka</a>
                         </li>
                         <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
                             <a href="javascript:;" class="nav-link text-body p-0" id="iconNavbarSidenav">
