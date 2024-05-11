@@ -24,4 +24,5 @@ Route::get('logdata', [LogdataController::class, 'index']);
 
 // API Alat
 Route::get('/data-dashboard', [ApiController::class, 'getDataDashboard']);
+Route::post('/log-data', [ApiController::class, 'postLogData']);
 Route::put('/data-dashboard', [ApiController::class, 'dataDashboard']);

@@ -94,6 +94,23 @@
                     </div>
                 </div>
             </div>
+
+            <div class="row mt-4">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Karbon Monoksida</h5>
+                            <div class="chart-area" style="height: fit-content">
+                                <div id="grafikKarbonMonoksida"></div>
+                            </div>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of
+                                the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="row mt-4">
                 <div class="col-lg-4 col-md-6 mt-4 mb-4">
                     <div class="card z-index-2 ">
@@ -570,6 +587,7 @@
         </div>
     </main>
 
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <script>
         let dataSendTrigger = false;
 
@@ -598,6 +616,26 @@
             document.getElementById('pm25-value').textContent = '-';
         }
 
+        const makeChart = (chartId) => {
+            let options = {
+                chart: {
+                    type: 'line',
+                    height: 300
+                },
+                series: [{
+                    name: 'sales',
+                    data: [30, 40, 35, 50, 49, 60, 70, 91, 125]
+                }],
+                xaxis: {
+                    categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999]
+                }
+            }
+
+            const chart = new ApexCharts(document.getElementById(chartId), options);
+
+            chart.render();
+        }
+
         setInterval(() => {
             dataSendTrigger = true;
             getDataDashboard();
@@ -606,5 +644,8 @@
         if (dataSendTrigger != true) {
             setDefaultData();
         }
+
+        // Chart
+        makeChart("grafikKarbonMonoksida");
     </script>
 @endsection

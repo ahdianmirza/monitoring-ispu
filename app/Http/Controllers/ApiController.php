@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataDashboard;
+use App\Models\Logdata;
 use Illuminate\Http\Request;
 
 class ApiController extends Controller
@@ -33,5 +34,16 @@ class ApiController extends Controller
 
     public function getDataDashboard() {
         return response()->json(DataDashboard::first());
+    }
+
+    public function postLogData(Request $request) {
+        $dataUdara = $request->all();
+        $createData = Logdata::create([
+            'co' => $dataUdara['co'],
+            'no2' => $dataUdara['no2'],
+            'created_at' => new \DateTime("now", new \DateTimeZone("GMT+7"))
+
+        ]);
+        return response()->json($createData);
     }
 }
