@@ -38,76 +38,91 @@
             </div>
         </nav>
         <!-- End Navbar -->
+
         <div class="container-fluid py-4">
             <div class="row">
+                <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-header px-3 py-2 text-center bg-gradient-primary">
+                            <h6 class="m-0 p-0" style="color: #fff">Nilai Karbon Monoksida</h6>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="d-flex flex-wrap justify-content-between" style="width: 100%;">
+                                <div class="text-start">
+                                    <h4 class="mb-0">200 μg/m3</h4>
+                                    <p>Nilai Sensor</p>
+                                </div>
+                                <div class="text-end">
+                                    <h4 id="co-value" class="mb-0"></h4>
+                                    <p>Nilai ISPU</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <p class="fw-bold fs-5">Kategori : Baik</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-header px-3 py-2 text-center bg-gradient-success">
+                            <h6 class="m-0 p-0" style="color: #fff">Nilai Nitrogen Dioksida</h6>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="d-flex flex-wrap justify-content-between" style="width: 100%;">
+                                <div class="text-start">
+                                    <h4 class="mb-0">200 μg/m3</h4>
+                                    <p>Nilai Sensor</p>
+                                </div>
+                                <div class="text-end">
+                                    <h4 id="no2-value" class="mb-0"></h4>
+                                    <p>Nilai ISPU</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <p class="fw-bold fs-5">Kategori : Baik</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+            <div class="row mt-4">
+                <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
                     <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-dark shadow-dark text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-icons opacity-10">weekend</i>
-                            </div>
-                            <div class="text-end pt-1">
-                                {{-- <p class="text-sm mb-0 text-capitalize">Today's Users</p> --}}
-                                <h4 id="co-value" class="mb-0"></h4>
-                            </div>
+                        <div class="card-header px-3 py-2 text-center bg-gradient-danger">
+                            <h6 class="m-0 p-0" style="color: #fff">Nilai PM 2.5</h6>
                         </div>
-                        <hr class="dark horizontal my-0">
-                        <div class="card-footer p-3">
-                            <p class="mb-0">Nilai Karbon Monoksida</p>
+                        <div class="card-body px-3">
+                            <div class="d-flex flex-wrap justify-content-between" style="width: 100%;">
+                                <div class="text-start">
+                                    <h4 class="mb-0">200 μg/m3</h4>
+                                    <p>Nilai Sensor</p>
+                                </div>
+                                <div class="text-end">
+                                    <h4 id="pm25-value" class="mb-0"></h4>
+                                    <p>Nilai ISPU</p>
+                                </div>
+                            </div>
+                            <div class="text-center">
+                                <p class="fw-bold fs-5">Kategori : Baik</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-success shadow-success text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-icons opacity-10">person</i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <h4 id="no2-value" class="mb-0"></h4>
-                            </div>
-                        </div>
-                        <hr class="dark horizontal my-0">
-                        <div class="card-footer p-3">
-                            <p class="mb-0">Nilai Nitrogen Dioksida edit</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-icons opacity-10">weekend</i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <h4 id="pm25-value" class="mb-0"></h4>
-                            </div>
-                        </div>
-                        <hr class="dark horizontal my-0">
-                        <div class="card-footer p-3">
-                            <p class="mb-0">Nilai PM 2.5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-sm-6">
-                    <div class="card">
-                        <div class="card-header p-3 pt-2">
-                            <div
-                                class="icon icon-lg icon-shape bg-gradient-info shadow-info text-center border-radius-xl mt-n4 position-absolute">
-                                <i class="material-icons opacity-10">weekend</i>
-                            </div>
-                            <div class="text-end pt-1">
-                                <h4 id="ispu-value" class="mb-0">-</h4>
-                            </div>
-                        </div>
-                        <hr class="dark horizontal my-0">
-                        <div class="card-footer p-3">
-                            <p class="mb-0">Nilai Ispu : <strong><span id="kategori"></span></strong></p>
 
+                <div class="col-xl-6 col-sm-6 mb-xl-0 mb-4">
+                    <div class="card">
+                        <div class="card-header px-3 py-2 text-center bg-gradient-danger">
+                            <h6 class="m-0 p-0" style="color: #fff">Nilai ISPU</h6>
+                        </div>
+                        <div class="card-body px-3">
+                            <div class="text-center">
+                                <h4 class="mb-0">20</h4>
+                            </div>
+                            <div class="text-center">
+                                <p class="fw-bold fs-5">Kategori : Baik</p>
+                            </div>
                         </div>
                     </div>
                 </div>
