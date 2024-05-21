@@ -20,6 +20,9 @@ class DataDashboardFactory extends Factory
             'co' => fake()->randomFloat(2, 10, 200),
             'no2' => fake()->randomFloat(2, 10, 300),
             'pm25' => fake()->randomFloat(2, 10, 400),
+            'ispu_co' => fake()->numberBetween(1, 500),
+            'ispu_no2' => fake()->numberBetween(1, 500),
+            'ispu_pm25' => fake()->numberBetween(1, 500),
         ];
     }
 }

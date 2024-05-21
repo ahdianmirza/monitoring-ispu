@@ -20,8 +20,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::get('logdata', [LogdataController::class, 'index']);
+// Route::get('logdata', [LogdataController::class, 'index']);
 
 // API Alat
 Route::get('/data-dashboard', [ApiController::class, 'getDataDashboard']);
-Route::get('/data-dashboard', [ApiController::class, 'getDataDashboard']);
+Route::post('/log-data', [ApiController::class, 'postLogData']);
+Route::post('/data-dashboard', [ApiController::class, 'dataDashboard']);

@@ -13,7 +13,8 @@ class ApiController extends Controller
         $dataDashboard = DataDashboard::first()->update([
             'co' => $request->co,
             'no2' => $request->no2,
-            'pm25' => $request->pm25,
+            'ispu_co' => $request->ispu_co,
+            'ispu_no2' => $request->ispu_no2,
         ]);
 
         if ($dataDashboard) {
@@ -33,14 +34,20 @@ class ApiController extends Controller
         return response()->json($respose);
     }
 
-    public function log(Request $request)
-    {
-        $Log = Logdata::all();
-        return response()->json($Log);
+    public function getDataDashboard() {
+        return response()->json(DataDashboard::first());
     }
 
-    public function getDataDashboard()
-    {
-        return response()->json(DataDashboard::first());
+    public function postLogData(Request $request) {
+        $dataUdara = $request->all();
+        $createData = Logdata::create([
+            'co' => $dataUdara['co'],
+            'no2' => $dataUdara['no2'],
+            'ispu_co' => $dataUdara['ispu_co'],
+            'ispu_no2' => $dataUdara['ispu_no2'],
+            'created_at' => new \DateTime("now", new \DateTimeZone("GMT+7"))
+
+        ]);
+        return response()->json($dataUdara);
     }
 }

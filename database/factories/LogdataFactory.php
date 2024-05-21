@@ -21,7 +21,10 @@ class LogdataFactory extends Factory
             'co' => fake()->randomFloat(2, 10, 200),
             'no2' => fake()->randomFloat(2, 10, 300),
             'pm25' => fake()->randomFloat(2, 10, 400),
-            'created_at' => fake()->dateTimeBetween('-1 week', '+1 week')
+            'created_at' => fake()->dateTimeBetween('-1 week', '+1 week'),
+            'ispu_co' => fake()->numberBetween(1, 500),
+            'ispu_no2' => fake()->numberBetween(1, 500),
+            'ispu_pm25' => fake()->numberBetween(1, 500),
         ];
     }
 }

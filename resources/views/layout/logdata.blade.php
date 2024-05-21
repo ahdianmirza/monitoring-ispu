@@ -45,20 +45,24 @@
                                         <thead>
                                             <tr>
                                                 <th>Waktu</th>
-                                                <th>Nama Device</th>
                                                 <th>CO</th>
                                                 <th>NO2</th>
                                                 <th>PM2.5</th>
+                                                <th>ISPU CO</th>
+                                                <th>ISPU NO2</th>
+                                                <th>ISPU PM2.5</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @foreach ($logdata as $row)
                                                 <tr>
                                                     <td>{{ date('d/m/Y H:i', strtotime($row->created_at)) }}</td>
-                                                    <td>{{ $row->device }}</td>
                                                     <td>{{ $row->co }}</td>
                                                     <td>{{ $row->no2 }}</td>
                                                     <td>{{ $row->pm25 }}</td>
+                                                    <td>{{ $row->ispu_co }}</td>
+                                                    <td>{{ $row->ispu_no2 }}</td>
+                                                    <td>{{ $row->ispu_pm25 }}</td>
                                                 </tr>
                                             @endforeach
                                         </tbody>

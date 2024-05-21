@@ -49,16 +49,16 @@
                         <div class="card-body px-3">
                             <div class="d-flex flex-wrap justify-content-between" style="width: 100%;">
                                 <div class="text-start">
-                                    <h4 class="mb-0">200 μg/m3</h4>
+                                    <h4 id="co-value" class="mb-0"></h4>
                                     <p>Nilai Sensor</p>
                                 </div>
                                 <div class="text-end">
-                                    <h4 id="co-value" class="mb-0"></h4>
+                                    <h4 id="ispu-co" class="mb-0"></h4>
                                     <p>Nilai ISPU</p>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <p class="fw-bold fs-5">Kategori : Baik</p>
+                                <p class="fw-bold fs-5">Kategori : <span id="ispu-status-co"></span></p>
                             </div>
                         </div>
                     </div>
@@ -71,16 +71,16 @@
                         <div class="card-body px-3">
                             <div class="d-flex flex-wrap justify-content-between" style="width: 100%;">
                                 <div class="text-start">
-                                    <h4 class="mb-0">200 μg/m3</h4>
+                                    <h4 id="no2-value" class="mb-0"></h4>
                                     <p>Nilai Sensor</p>
                                 </div>
                                 <div class="text-end">
-                                    <h4 id="no2-value" class="mb-0"></h4>
+                                    <h4 id="ispu-no2" class="mb-0"></h4>
                                     <p>Nilai ISPU</p>
                                 </div>
                             </div>
                             <div class="text-center">
-                                <p class="fw-bold fs-5">Kategori : Baik</p>
+                                <p class="fw-bold fs-5">Kategori : <span id="ispu-status-no2"></span></p>
                             </div>
                         </div>
                     </div>
@@ -96,11 +96,11 @@
                         <div class="card-body px-3">
                             <div class="d-flex flex-wrap justify-content-between" style="width: 100%;">
                                 <div class="text-start">
-                                    <h4 class="mb-0">200 μg/m3</h4>
+                                    <h4 id="pm25-value" class="mb-0"></h4>
                                     <p>Nilai Sensor</p>
                                 </div>
                                 <div class="text-end">
-                                    <h4 id="pm25-value" class="mb-0"></h4>
+                                    <h4 id="ispu-pm25" class="mb-0"></h4>
                                     <p>Nilai ISPU</p>
                                 </div>
                             </div>
@@ -118,10 +118,10 @@
                         </div>
                         <div class="card-body px-3">
                             <div class="text-center">
-                                <h4 class="mb-0">20</h4>
+                                <h4 id="ispu-value" class="mb-0"></h4>
                             </div>
                             <div class="text-center">
-                                <p class="fw-bold fs-5">Kategori : Baik</p>
+                                <p class="fw-bold fs-5">Kategori : <span id="kategori-ispu"></span></p>
                             </div>
                         </div>
                     </div>
@@ -225,7 +225,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex ">
-                                    <p class="mb-0 text-sm dampakk" id="dampakk"></p>
+                                    <p class="mb-0 text-sm" id="dampak"></p>
                                 </div>
                             </div>
                         </div>
@@ -241,7 +241,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="d-flex ">
-                                    <p class="mb-0 text-sm rekomendasii" id="rekomendasii"></p>
+                                    <p class="mb-0 text-sm rekomendasii" id="rekomendasi"></p>
                                 </div>
                             </div>
                         </div>
@@ -266,67 +266,81 @@
                 .then(res => res.json())
                 .then(json => {
                     console.info("Data Dashboard request: ", json);
-                    document.getElementById('co-value').textContent = json.co;
-                    document.getElementById('no2-value').textContent = json.no2;
-                    document.getElementById('pm25-value').textContent = json.pm25;
-                    var ispu = Math.max(json.ispu_pm25, json.ispu_co, json.ispu_no2);
+                    document.getElementById('co-value').textContent = `${json.co} μg/m3`;
+                    document.getElementById('no2-value').textContent = `${json.no2} μg/m3`;
+                    document.getElementById('pm25-value').textContent = `${json.pm25} μg/m3`;
+                    document.getElementById('pm25-value').textContent = `${json.pm25} μg/m3`;
+                    document.getElementById('ispu-co').textContent = json.ispu_co;
+                    document.getElementById('ispu-no2').textContent = json.ispu_no2;
+                    document.getElementById('ispu-pm25').textContent = json.ispu_pm25;
+
+                    let ispu = Math.max(json.ispu_pm25, json.ispu_co, json.ispu_no2);
                     document.getElementById('ispu-value').textContent = ispu;
-                    var dampak;
-                    var rekomendasi;
+
+                    const dampak = document.getElementById('dampak');
+                    const rekomendasi = document.getElementById('rekomendasi');
+                    const ispu_status_co = document.getElementById('ispu-status-co');
+                    const ispu_status_no2 = document.getElementById('ispu-status-no2');
+                    const kategori_ispu = document.getElementById('kategori-ispu');
 
                     // kerjaan putut
                     if (ispu >= 0 && ispu <= 50) {
-                        kategori = "Baik";
-                        dampak =
+                        let kategori_ispu_value = "Baik";
+                        let dampak_value =
                             "Tingkat kualitas udara yang sangat baik, tidak memberikan efek negatif terhadap manusia, hewan, tumbuhan"
-                        rekomendasi = "Sangat baik melakukan kegiatan di luar";
-                        document.getElementById('dampakk').textContent = dampak;
-                        document.getElementById('kategori').textContent = kategori;
-                        document.getElementById('rekomendasii').textContent = rekomendasi;
-
+                        let rekomendasi_value = "Sangat baik melakukan kegiatan di luar";
+                        dampak.textContent = dampak_value;
+                        rekomendasi.textContent = rekomendasi_value;
+                        kategori_ispu.textContent = kategori_ispu_value;
+                        ispu_status_co.textContent = kategori_ispu_value;
+                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >= 51 && ispu <= 100) {
-                        kategori = "Sedang";
-                        dampak =
+                        let kategori_ispu_value = "Sedang";
+                        let dampak_value =
                             "Tingkat kualitas udara masih dapat diterima pada kesehatan manusia, hewan dan tumbuhan.";
-                        rekomendasi =
+                        let rekomendasi_value =
                             "Kelompok sensitif: Kurangi aktivitas fisik yang terlalu lama atau berat. \n Setiap orang: Masih dapat beraktivitas di luar";
-                        document.getElementById('kategori').textContent = kategori;
-                        document.getElementById('dampakk').textContent = dampak;
-                        document.getElementById('rekomendasii').textContent = rekomendasi;
-
+                        dampak.textContent = dampak_value;
+                        rekomendasi.textContent = rekomendasi_value;
+                        kategori_ispu.textContent = kategori_ispu_value;
+                        ispu_status_co.textContent = kategori_ispu_value;
+                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >= 101 && ispu <= 200) {
-                        kategori = "Tidak Sehat";
-                        dampak = "Tingkat kualitas udara yang bersifat merugikan pada manusia, hewan dan tumbuhan.";
-                        rekomendasi =
+                        let kategori_ispu_value = "Tidak Sehat";
+                        let dampak_value =
+                            "Tingkat kualitas udara yang bersifat merugikan pada manusia, hewan dan tumbuhan.";
+                        let rekomendasi_value =
                             "Kelompok sensitif: Boleh melakukan aktivitas di luar, tetapi mengambil rehat lebih sering dan melakukan aktivitas ringan. Amati gejala berupa batuk atau nafas sesak. Penderita asma harus mengikuti petunjuk kesehatan untuk asma dan menyimpan obat asma. \nPenderita penyakit jantung: gejala seperti palpitasi/jantung berdetak lebih cepat, sesak nafas, atau kelelahan yang tidak biasa mungkin mengindikasikan masalah serius. \n Setiap orang: Mengurangi aktivitas fisik yang terlalu lama di luar ruangan.";
-                        document.getElementById('kategori').textContent = kategori;
-                        document.getElementById('dampakk').textContent = dampak;
-                        document.getElementById('rekomendasii').textContent = rekomendasi;
-
+                        dampak.textContent = dampak_value;
+                        rekomendasi.textContent = rekomendasi_value;
+                        kategori_ispu.textContent = kategori_ispu_value;
+                        ispu_status_co.textContent = kategori_ispu_value;
+                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >= 201 && ispu <= 300) {
-                        kategori = "Sangat Tidak Sehat";
-                        dampak =
+                        let kategori_ispu_value = "Sangat Tidak Sehat";
+                        let dampak_value =
                             "Tingkat kualitas udara yang dapat meningkatkan resiko kesehatan pada sejumlah segmen populasi yang terpapar";
-                        rekomendasi =
+                        let rekomendasi_value =
                             "Kelompok sensitif: Hindari semua aktivitas di luar. Perbanyak aktivitas di dalam ruangan atau lakukan penjadwalan ulang pada waktu dengan kualitas udara yang baik. \n Setiap orang: Hindari aktivitas fisik yang terlalu lama di luar ruangan, pertimbangkan untuk melakukan aktivitas di dalam ruangan";
-                        document.getElementById('kategori').textContent = kategori;
-                        document.getElementById('dampakk').textContent = dampak;
-                        document.getElementById('rekomendasii').textContent = rekomendasi;
+                        dampak.textContent = dampak_value;
+                        rekomendasi.textContent = rekomendasi_value;
+                        kategori_ispu.textContent = kategori_ispu_value;
+                        ispu_status_co.textContent = kategori_ispu_value;
+                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >=
                         300
                     ) { // Adjusted to use '>' instead of '>=', since 300 was covered in the previous condition
-                        kategori = "Berbahaya";
-                        dampak =
+                        let kategori_ispu_value = "Berbahaya";
+                        let dampak_value =
                             "Tingkat kualitas udara yang dapat merugikan kesehatan serius pada populasi dan perlu penanganan cepat";
-                        rekomendasi =
+                        let rekomendasi_value =
                             "Kelompok sensitif: Tetap di dalam ruangan dan hanya melakukan sedikit aktivitas. \n Setiap orang: Hindari semua aktivitas di luar";
-                        document.getElementById('kategori').textContent = kategori;
-                        document.getElementById('dampakk').textContent = dampak;
-                        document.getElementById('rekomendasii').textContent = rekomendasi;
-
+                        dampak.textContent = dampak_value;
+                        rekomendasi.textContent = rekomendasi_value;
+                        kategori_ispu.textContent = kategori_ispu_value;
+                        ispu_status_co.textContent = kategori_ispu_value;
+                        ispu_status_no2.textContent = kategori_ispu_value;
                     }
-
-
                 })
                 .catch(error => {
                     console.info(error);
@@ -337,12 +351,13 @@
             document.getElementById('co-value').textContent = '-';
             document.getElementById('no2-value').textContent = '-';
             document.getElementById('pm25-value').textContent = '-';
+            document.getElementById('ispu-value').textContent = '-';
         }
 
         setInterval(() => {
             dataSendTrigger = true;
             getDataDashboard();
-        }, 5000);
+        }, 3000);
 
         if (dataSendTrigger != true) {
             setDefaultData();

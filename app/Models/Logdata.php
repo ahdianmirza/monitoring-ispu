@@ -13,12 +13,5 @@ class Logdata extends Model
     protected $primaryKey = 'idMonitoring';
     public $timestamps = false;
 
-    protected $fillable = [
-        'idMonitoring',
-        'waktu',
-        'namadevice',
-        'co2',
-        'no',
-        'pm25',
-    ];
+    protected $guarded = ['id'];
 }

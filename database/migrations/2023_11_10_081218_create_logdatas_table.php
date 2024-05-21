@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('logdatas', function (Blueprint $table) {
             $table->id();
-            $table->string('device');
+            $table->string('device')->nullable();
             $table->string('co')->nullable();
             $table->string('no2')->nullable();
             $table->string('pm25')->nullable();
+            $table->string('ispu_co')->nullable();
+            $table->string('ispu_no2')->nullable();
+            $table->string('ispu_pm25')->nullable();
             $table->timestamps();
         });
     }
