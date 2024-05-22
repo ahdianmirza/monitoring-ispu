@@ -283,6 +283,40 @@
                     const ispu_status_no2 = document.getElementById('ispu-status-no2');
                     const kategori_ispu = document.getElementById('kategori-ispu');
 
+                    if (json.ispu_co >= 0 && json.ispu_co <= 50) {
+                        let kategori_ispu_value = "Baik";
+                        ispu_status_co.textContent = kategori_ispu_value;
+                    } else if (json.ispu_co >= 51 && json.ispu_co <= 100) {
+                        let kategori_ispu_value = "Sedang";
+                        ispu_status_co.textContent = kategori_ispu_value;
+                    } else if (json.ispu_co >= 101 && json.ispu_co <= 200) {
+                        let kategori_ispu_value = "Tidak Sehat";
+                        ispu_status_co.textContent = kategori_ispu_value;
+                    } else if (json.ispu_co >= 201 && json.ispu_co <= 300) {
+                        let kategori_ispu_value = "Sangat Tidak Sehat";
+                        ispu_status_co.textContent = kategori_ispu_value;
+                    } else if (json.ispu_co >= 301) {
+                        let kategori_ispu_value = "Berbahaya";
+                        ispu_status_co.textContent = kategori_ispu_value;
+                    }
+
+                    if (json.ispu_no2 >= 0 && json.ispu_no2 <= 50) {
+                        let kategori_ispu_value = "Baik";
+                        ispu_status_no2.textContent = kategori_ispu_value;
+                    } else if (json.ispu_no2 >= 51 && json.ispu_no2 <= 100) {
+                        let kategori_ispu_value = "Sedang";
+                        ispu_status_no2.textContent = kategori_ispu_value;
+                    } else if (json.ispu_no2 >= 101 && json.ispu_no2 <= 200) {
+                        let kategori_ispu_value = "Tidak Sehat";
+                        ispu_status_no2.textContent = kategori_ispu_value;
+                    } else if (json.ispu_no2 >= 201 && json.ispu_no2 <= 300) {
+                        let kategori_ispu_value = "Sangat Tidak Sehat";
+                        ispu_status_no2.textContent = kategori_ispu_value;
+                    } else if (json.ispu_no2 >= 301) {
+                        let kategori_ispu_value = "Berbahaya";
+                        ispu_status_no2.textContent = kategori_ispu_value;
+                    }
+
                     // kerjaan putut
                     if (ispu >= 0 && ispu <= 50) {
                         let kategori_ispu_value = "Baik";
@@ -292,8 +326,6 @@
                         dampak.textContent = dampak_value;
                         rekomendasi.textContent = rekomendasi_value;
                         kategori_ispu.textContent = kategori_ispu_value;
-                        ispu_status_co.textContent = kategori_ispu_value;
-                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >= 51 && ispu <= 100) {
                         let kategori_ispu_value = "Sedang";
                         let dampak_value =
@@ -303,8 +335,6 @@
                         dampak.textContent = dampak_value;
                         rekomendasi.textContent = rekomendasi_value;
                         kategori_ispu.textContent = kategori_ispu_value;
-                        ispu_status_co.textContent = kategori_ispu_value;
-                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >= 101 && ispu <= 200) {
                         let kategori_ispu_value = "Tidak Sehat";
                         let dampak_value =
@@ -314,8 +344,6 @@
                         dampak.textContent = dampak_value;
                         rekomendasi.textContent = rekomendasi_value;
                         kategori_ispu.textContent = kategori_ispu_value;
-                        ispu_status_co.textContent = kategori_ispu_value;
-                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >= 201 && ispu <= 300) {
                         let kategori_ispu_value = "Sangat Tidak Sehat";
                         let dampak_value =
@@ -325,8 +353,6 @@
                         dampak.textContent = dampak_value;
                         rekomendasi.textContent = rekomendasi_value;
                         kategori_ispu.textContent = kategori_ispu_value;
-                        ispu_status_co.textContent = kategori_ispu_value;
-                        ispu_status_no2.textContent = kategori_ispu_value;
                     } else if (ispu >=
                         300
                     ) { // Adjusted to use '>' instead of '>=', since 300 was covered in the previous condition
@@ -338,8 +364,6 @@
                         dampak.textContent = dampak_value;
                         rekomendasi.textContent = rekomendasi_value;
                         kategori_ispu.textContent = kategori_ispu_value;
-                        ispu_status_co.textContent = kategori_ispu_value;
-                        ispu_status_no2.textContent = kategori_ispu_value;
                     }
                 })
                 .catch(error => {
